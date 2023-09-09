@@ -12,4 +12,6 @@ if [[ ! -d "${DOTFILES_HOME}" ]]; then
 fi
 
 yadm pull
-yadm bootstrap
+echo "dotfiles already initialized, run:\n\n\n\n
+$ yadm bootstrap
+"
