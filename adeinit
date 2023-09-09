@@ -1,17 +1,19 @@
 #!/usr/bin/env bash
 set -e
 
-DOTFILES_HOME="$HOME/.local/share/yadm/repo.git"
+DOTFILES_GIT_REPO="$HOME/.local/share/yadm/repo.git"
 
-if [[ ! -d "${DOTFILES_HOME}" ]]; then
+if [[ ! -d "${DOTFILES_GIT_REPO}" ]]; then
     brew install yadm
 
     # yadm clone https://github.com/nachovizzo/dotfiles.git
-    cp -r /opt/dotfiles/.git ${DOTFILES_HOME}
+    cp -r /opt/dotfiles/.git ${DOTFILES_GIT_REPO}
     yadm checkout $HOME
 fi
 
+# always fetch latest yadm
 yadm pull
-echo "dotfiles already initialized, run:\n\n\n\n
+
+echo "dotfiles already initialized and initialized, run:\n\n\n\n
 $ yadm bootstrap
 "
