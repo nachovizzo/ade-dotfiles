@@ -2,11 +2,20 @@
 set -xe
 cd "$(dirname "$(realpath "$0")")"
 
-mkdir -p _opt_dotfiles
+export DOTFILES_REPO="https://github.com/nachovizzo/dotfiles.git"
+export DOTFILES_DIR="_opt_dotfiles"
+export HOMEBREW_CACHE="${DOTFILES_DIR}/.cache/Homebrew"
+
+# First clone the dotfiles :)
+git -C ${DOTFILES_DIR} pull || git clone ${DOTFILES_REPO} ${DOTFILES_DIR}
+
+# Pre cache all Himebrew packages
+mkdir -p ${HOMEBREW_CACHE} && export HOMEBREW_CACHE=$(realpath ${HOMEBREW_CACHE})
+xargs brew fetch --deps --os linux --arch intel <${DOTFILES_DIR}/.config/yadm/brew_packages
 
 # Environment Setup
-cp env.sh _opt_dotfiles/.env.sh
-cp adeinit _opt_dotfiles/.adeinit
+cp env.sh ${DOTFILES_DIR}/.env.sh
+cp adeinit ${DOTFILES_DIR}/.adeinit
 
-# Use _opt_dotfiles for readability, rename to _opt b/c it's expected by Dockerfile
-mv _opt_dotfiles _opt
+# Use ${DOTFILES_DIR} for readability, rename to _opt b/c it's expected by Dockerfile
+mv ${DOTFILES_DIR} _opt

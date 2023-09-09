@@ -1,7 +1,7 @@
 COMMIT_SHA:=$(shell git rev-parse HEAD)
 COMMIT_TAG:=$(shell git describe --tags --abbrev=0)
 
-_opt:
+_opt:build-opt
 	rm -rf _opt/ 2>/dev/null || true
 	./build-opt $(COMMIT_TAG)
 
