@@ -9,6 +9,7 @@ export HOMEBREW_CACHE="${DOTFILES_DIR}/.cache/Homebrew"
 # First clone the dotfiles :)
 git -C ${DOTFILES_DIR} pull || git clone ${DOTFILES_REPO} ${DOTFILES_DIR}
 
+# TODO: add flag --no-cache. Docker image got 1.6 GiB big :S
 # Pre cache all Himebrew packages
 mkdir -p ${HOMEBREW_CACHE} && export HOMEBREW_CACHE=$(realpath ${HOMEBREW_CACHE})
 xargs brew fetch --deps --os linux --arch intel <${DOTFILES_DIR}/.config/yadm/brew_packages
