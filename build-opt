@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -xe
+cd "$(dirname "$(realpath "$0")")"
+
+mkdir -p _opt_dotfiles
+
+# Environment Setup
+cp env.sh _opt_dotfiles/.env.sh
+cp adeinit _opt_dotfiles/.adeinit
+
+# Use _opt_dotfiles for readability, rename to _opt b/c it's expected by Dockerfile
+mv _opt_dotfiles _opt

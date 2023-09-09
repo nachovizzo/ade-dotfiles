@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -e
+
+if [[ -n "$DEBUG" ]]; then
+    set -x
+fi
+
+DOTFILES_HOME="$HOME/.local/share/yadm/repo.git"
+
+if [[ ! -d "${DOTFILES_HOME}" ]]; then
+    brew install yadm
+    yadm clone https://github.com/nachovizzo/dotfiles.git
+
+    echo "dotfiles cloned into local directory, please run 'yadm bootstrap' to install everything"
+fi
