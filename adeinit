@@ -7,8 +7,14 @@ if [[ ! -d "${DOTFILES_GIT_REPO}" ]]; then
     brew install yadm
 
     # yadm clone https://github.com/nachovizzo/dotfiles.git
+    mkdir -p $HOME/.local/share/yadm/
     cp -r /opt/dotfiles/.git ${DOTFILES_GIT_REPO}
     yadm checkout $HOME
+fi
+
+# Pour cache into home directory
+if [[ ! -d "$(brew --cache)" ]]; then
+    cp -r /opt/dotfiles/.cache/ $HOME
 fi
 
 # always fetch latest yadm
