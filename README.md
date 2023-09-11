@@ -10,3 +10,7 @@ export ADE_IMAGES="
   ignaciovizzo/ade-dotfiles:latest
 "
 ```
+
+# TODO
+
+- [ ] Fix mess between python3.11 and python3.10
