@@ -7,7 +7,6 @@ export DOTFILES_DIR="_opt"
 export HOMEBREW_CACHE="${DOTFILES_DIR}/.cache/Homebrew"
 
 # First clone the dotfiles :)
-mkdir -p ${DOTFILES_DIR}
 git -C ${DOTFILES_DIR} pull || git clone ${DOTFILES_REPO} ${DOTFILES_DIR}
 
 # TODO: add flag --no-cache. Docker image got 1.6 GiB big :S
