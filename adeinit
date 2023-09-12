@@ -3,22 +3,15 @@ set -e
 
 DOTFILES_GIT_REPO="$HOME/.local/share/yadm/repo.git"
 
-if [[ ! -d "${DOTFILES_GIT_REPO}" ]]; then
-    brew install yadm
+brew install yadm
 
-    # yadm clone https://github.com/nachovizzo/dotfiles.git
-    mkdir -p $HOME/.local/share/yadm/
-    cp -r /opt/dotfiles/.git ${DOTFILES_GIT_REPO}
-    yadm checkout $HOME
-fi
+# replicate yadm clone https://github.com/nachovizzo/dotfiles.git
+mkdir -p $HOME/.local/share/yadm/
+cp -r /opt/dotfiles/.git ${DOTFILES_GIT_REPO}
+yadm checkout $HOME
 
 # Pour cache into home directory
-if [[ ! -d "$(brew --cache)" ]]; then
-    cp -r /opt/dotfiles/.cache/ $HOME
-fi
-
-# always fetch latest yadm
-yadm pull
+cp -r /opt/dotfiles/.cache/ $HOME
 
 echo "dotfiles already initialized and initialized, run:\n\n\n\n
 $ yadm bootstrap
