@@ -3,7 +3,7 @@ set -e
 
 DOTFILES_GIT_REPO="$HOME/.local/share/yadm/repo.git"
 
-brew install yadm
+brew list --versions yadm >/dev/null || brew install yadm
 
 # replicate yadm clone https://github.com/nachovizzo/dotfiles.git
 mkdir -p $HOME/.local/share/yadm/
