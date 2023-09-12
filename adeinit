@@ -7,7 +7,7 @@ brew install yadm
 
 # replicate yadm clone https://github.com/nachovizzo/dotfiles.git
 mkdir -p $HOME/.local/share/yadm/
-cp -r /opt/dotfiles/.git ${DOTFILES_GIT_REPO}
+cp -R /opt/dotfiles/.git ${DOTFILES_GIT_REPO} 2>/dev/null || true
 yadm checkout $HOME
 
 # Pour cache into home directory
