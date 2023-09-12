@@ -1,6 +1,8 @@
 # ADE Dotfiles
 
-WIP
+This is an ade volume to manage my [own dotfiles](git@github.com:nachovizzo/dotfiles.git). This basically means that the only person I will provide support for is myself 🤣
+
+It is a big image since it has some pre-cached homebrew cache but should save some time while deploying it.
 
 ## How to use
 
@@ -10,7 +12,3 @@ export ADE_IMAGES="
   ignaciovizzo/ade-dotfiles:latest
 "
 ```
-
-# TODO
-
-- [ ] Fix mess between python3.11 and python3.10
