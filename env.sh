@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-# No brew no love
-# eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+if [ -f "$HOME/.env" ]; then
+  . "$HOME/.env"
+fi
