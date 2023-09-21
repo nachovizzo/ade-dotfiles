@@ -2,5 +2,3 @@
 if [ -f "$HOME/.env" ]; then
   . "$HOME/.env"
 fi
-
-sudo chsh -s "$(which zsh)" "$USER"
