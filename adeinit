@@ -10,9 +10,6 @@ mkdir -p $HOME/.local/share/yadm/
 cp -R /opt/dotfiles/.git ${DOTFILES_GIT_REPO} 2>/dev/null || true
 yadm checkout $HOME
 
-# Pour cache into home directory
-cp -r /opt/dotfiles/.cache/ $HOME
-
 echo "dotfiles already initialized and initialized, run:\n\n\n\n
 $ yadm bootstrap
 "
